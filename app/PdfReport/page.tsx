@@ -4,7 +4,7 @@ import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 
 export default function Home() {
-  const addWatermark = (doc, text = "Draft") => {
+  const addWatermark = (doc: any, text = "Draft") => {
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
 
