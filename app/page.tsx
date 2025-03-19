@@ -11,7 +11,7 @@ const Navbar = () => {
             View Gallery
           </Link>
 
-          <Link href="/changes-only" className="text-white hover:underline">
+          <Link href="/viewonly" className="text-white hover:underline">
             Changes Only
           </Link>
           <Link href="/edit-gallery" className="text-white hover:underline">
