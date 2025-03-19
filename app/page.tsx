@@ -29,7 +29,7 @@ const Navbar = () => {
           <Link href="/ActionOnly" className="hover:underline">
             Action Only
           </Link>
-          <Link href="/ViewInternal" className="text-white hover:underline">
+          <Link href="/ViewInternal" className="hover:underline">
             View Internal
           </Link>
         </div>
