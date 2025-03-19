@@ -367,7 +367,7 @@ export default function Home() {
           </div>
 
           <div className="border-r border-gray-300 h-full"></div>
-          <div className="pl-2 mt-1 w-65">
+          <div className="pl-2 mt-1 pr-[7px]">
             {selectedSection && (
               <div>
                 {selectedSection.attachments.map((attachment, index) => (
@@ -390,7 +390,7 @@ export default function Home() {
 
         {/* Main Content */}
         <main className="flex-1 ml-120 p-4 flex justify-center items-center overflow-hidden relative bg-white">
-          <div className="absolute p-1 top-3 left-1/2 -translate-x-1/2 flex w-full grid grid-cols-3 gap-1 bg-black/30 p-0.5 rounded-sm z-10">
+          <div className="absolute p-1 top-3 left-1/2 -translate-x-1/2 flex w-full grid grid-cols-3 gap-1 bg-black/30 rounded-sm z-10 ml-[3px] mr-[2px]">
             <div className="flex gap-1">
               <button
                 onClick={zoomIn}
@@ -415,7 +415,7 @@ export default function Home() {
                 className="p-1.5 bg-purple-400 text-white rounded hover:bg-purple-500 flex justify-center"
                 onClick={() => window.open(selectedImage, "_blank")}
               >
-                <Maximize size={20} />
+                <Maximize size={15} />
               </button>
             </div>
           </div>
