@@ -7,17 +7,20 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between">
         <div className="text-white text-lg font-bold">Gallery App</div>
         <div className="space-x-4">
-          <Link href="/pdfExport" className="text-white hover:underline">
-            PDF Export
-          </Link>
-          <Link href="/viewgallery" className="text-white hover:underline">
+          <Link href="/ViewGallery" className="text-white hover:underline">
             View Gallery
           </Link>
-          <Link href="/viewonly" className="text-white hover:underline">
+          <Link href="/PdfReport" className="text-white hover:underline">
+            PDF Report
+          </Link>
+          <Link href="/ChangesOnly" className="text-white hover:underline">
             Changes Only
           </Link>
-          <Link href="/edit-gallery" className="text-white hover:underline">
-            Edit Gallery
+          <Link href="/ActionOnly" className="text-white hover:underline">
+            Action Only
+          </Link>
+          <Link href="/ViewInternal" className="text-white hover:underline">
+            View Internal
           </Link>
         </div>
       </div>
