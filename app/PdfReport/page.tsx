@@ -48,8 +48,9 @@ const config = {
     text: "Powered by PROINSPEC",
     fontSize: 10,
     serialNumberStart: 1000,
-    backgroundColor: [84, 122, 167] as [number, number, number], // Footer Background Color
-    textColor: [255, 255, 255] as [number, number, number], // Footer Text Color (White)
+    //
+    backgroundColor: [255, 252, 247] as [number, number, number], // Footer Background Color
+    textColor: [69, 67, 67] as [number, number, number], // Footer Text Color (White)
     borderColor: [0, 0, 0] as [number, number, number], // Footer Border Color (Black)
   },
 };
@@ -94,6 +95,45 @@ const addFooter = (doc: jsPDF) => {
 
   // Reset text color to black for the rest of the document
   doc.setTextColor(0, 0, 0);
+};
+
+// 🔹 Function to Add Table with Heading
+const addSectionTable = (doc: jsPDF) => {
+  doc.addPage(); // Add a new page for the table
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  let startY = 20; // Adjust starting Y position
+
+  autoTable(doc, {
+    startY,
+    theme: "grid" as ThemeType,
+    styles: { fontSize: 12, cellPadding: 2 },
+    headStyles: { fillColor: [30, 144, 255], textColor: 0, fontStyle: "bold" }, // Blue header
+    columnStyles: { 0: { halign: "center" } }, // Align Ref No center
+
+    // 🔹 "Living Room" as Table Heading
+    didDrawPage: (data) => {
+      doc.setFillColor(211, 47, 47); // Red background
+      doc.rect(
+        data.settings.margin.left,
+        startY - 11,
+        pageWidth - 28.5,
+        12,
+        "F"
+      ); // Full width header
+      doc.setTextColor(255, 255, 255); // White text
+      doc.setFontSize(14);
+      doc.setFont("helvetica", "bold");
+      doc.text("Living Room", pageWidth / 2, startY - 3, { align: "center" });
+    },
+
+    // 🔹 Table Data
+    head: [["Ref No", "Name", "Description"]],
+    body: [
+      ["2.1", "Sofa", "Leather, Black"],
+      ["2.2", "Coffee Table", "Wood, Glass Top"],
+    ],
+  });
 };
 
 // 🔹 Function to Generate PDF
@@ -161,6 +201,9 @@ const generatePDF = (withWatermark = true) => {
         ["Report Completed by", "Nancy Lee"],
       ],
     });
+
+    // 🔹 Add the Section Table
+    addSectionTable(doc);
 
     // 🔹 Add Footer
     addFooter(doc);
